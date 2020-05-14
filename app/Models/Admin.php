@@ -16,4 +16,10 @@ class Admin extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    // 后台用户头像
+    public function adminlte_image()
+    {
+        return asset('admin/assets/img/avatar.png');
+    }
 }

@@ -18,9 +18,9 @@ class CreateAdminsTable extends Migration
             $table->string('name', 120)->unique();
             $table->string('nickname', 120);
             $table->string('password');
-            $table->string('location', 100);
-            $table->string('ip', 30);
-            $table->string('avatar', 255);
+            $table->string('location', 100)->default('');
+            $table->string('ip', 30)->default('');
+            $table->string('avatar', 255)->default('');
             $table->rememberToken();
             $table->timestamps();
         });
