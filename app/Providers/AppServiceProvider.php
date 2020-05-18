@@ -25,37 +25,37 @@ class AppServiceProvider extends ServiceProvider
     {
         //监听菜单构造事件、构造用户权限菜单
         $events->listen(BuildingMenu::class, function (BuildingMenu $event) {
-
-            $event->menu->add('MENU DE NAVEGAÇÃO');
-
             $menu = new AdminMenu;
-            $menus = $menu->with('subMenus')->get();
+            $menus = $menu
+                ->with('subMenus')
+                ->where('parent_id', 0)
+                ->orderBy('order')
+                ->get();
 
-            foreach($menus as $menu){
-
-                $arrayMenu = array('text' => '', 'url' => '', 'icon' => '', 'can' => '');
-
-                if(count($menu->subMenus) != NULL){
-                    foreach($menu->subMenus as $submenu){
-                        $arrayMenu[] = array(
-                            'text' => $submenu->name,
-                            'url' => $submenu->uri,
-                            'icon' => $submenu->icon
-                        );
-
-                    };
-                    $event->menu->add([
-                        'text' => $menu->name,
-                        'url' => $menu->uri,
-                        'icon' => $menu->icon,
-                        'submenu' => $arrayMenu,
-                    ]);
-                }else{
-                    $event->menu->add([
-                        'text' => $menu->name,
+            $func = function ($menus) use (&$func, $event) {
+                foreach ($menus as $menu) {
+                    $event->menu->addin($menu->parent_id, [
+                        'text' => $menu->title,
                         'url' => $menu->uri,
                         'icon' => $menu->icon,
                     ]);
+
+                    if (count($menu->subMenus)) {
+                        $func($menu->subMenus);
+                    }
+                }
+            };
+
+            foreach ($menus as $menu) {
+                $event->menu->add([
+                    'key' => $menu->id,
+                    'text' => $menu->title,
+                    'url' => $menu->uri,
+                    'icon' => $menu->icon,
+                ]);
+
+                if (count($menu->subMenus)) {
+                    $func($menu->subMenus);
                 }
             }
         });
