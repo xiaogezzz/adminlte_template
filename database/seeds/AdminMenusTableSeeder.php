@@ -26,7 +26,7 @@ class AdminMenusTableSeeder extends Seeder
                 'order' => 2,
                 'parent_id' => 0,
                 'title' => '系统管理',
-                'icon' => 'nav-icon fas fa-tasks',
+                'icon' => 'nav-icon fas fa-server',
                 'uri' => '',
                 'permission' => '',
             ],
