@@ -20,8 +20,15 @@ class ExtendPermissionTables extends Migration
         }
 
         Schema::table($tableNames['permissions'], function (Blueprint $table) {
-            $table->string('display_name')->after('guard_name')->nullable();
-            $table->string('description')->after('display_name')->nullable();
+            $table->string('display_name')->after('guard_name')->default('');
+            $table->string('description')->after('display_name')->default('');
+
+            $table->unique('name', 'name_unique');
+        });
+
+        Schema::table($tableNames['roles'], function (Blueprint $table) {
+            $table->string('display_name')->after('guard_name')->default('');
+            $table->string('description')->after('display_name')->default('');
 
             $table->unique('name', 'name_unique');
         });
@@ -41,6 +48,13 @@ class ExtendPermissionTables extends Migration
         }
 
         Schema::table($tableNames['permissions'], function (Blueprint $table) {
+            $table->dropColumn('display_name');
+            $table->dropColumn('description');
+
+            $table->dropUnique('name_unique');
+        });
+
+        Schema::table($tableNames['roles'], function (Blueprint $table) {
             $table->dropColumn('display_name');
             $table->dropColumn('description');
 
