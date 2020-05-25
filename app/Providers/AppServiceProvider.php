@@ -32,12 +32,21 @@ class AppServiceProvider extends ServiceProvider
                 ->orderBy('order')
                 ->get();
 
-            $func = function ($menus) use (&$func, $event) {
+            $active = function ($uri) {
+                if ($uri) {
+                    $uri = url()->route($uri, [], false);
+                    return  ['regex:@^' . substr($uri, 1) . '/[0-9]+/.*$@'];
+                }
+                return '';
+            };
+
+            $func = function ($menus) use (&$func, $event, $active) {
                 foreach ($menus as $menu) {
                     $event->menu->addin($menu->parent_id, [
                         'text' => $menu->title,
-                        'url' => $menu->uri,
+                        'url' => $menu->permission ? route($menu->permission) : '',
                         'icon' => $menu->icon,
+                        'active' => $active($menu->permission),
                     ]);
 
                     if (count($menu->subMenus)) {
@@ -50,8 +59,9 @@ class AppServiceProvider extends ServiceProvider
                 $event->menu->add([
                     'key' => $menu->id,
                     'text' => $menu->title,
-                    'url' => $menu->uri,
+                    'url' => $menu->permission ? route($menu->permission) : '',
                     'icon' => $menu->icon,
+                    'active' => $active($menu->permission),
                 ]);
 
                 if (count($menu->subMenus)) {

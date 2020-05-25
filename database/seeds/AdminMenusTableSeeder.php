@@ -19,7 +19,7 @@ class AdminMenusTableSeeder extends Seeder
                 'order' => 1,
                 'title' => '首页',
                 'icon' => 'nav-icon fas fa-tachometer-alt',
-                'uri' => 'manage',
+                'uri' => '/',
                 'permission' => 'index',
             ],
             [
@@ -35,7 +35,7 @@ class AdminMenusTableSeeder extends Seeder
                 'order' => 3,
                 'title' => '管理员',
                 'icon' => 'nav-icon fas fa-users',
-                'uri' => 'manage/admins',
+                'uri' => 'admins',
                 'permission' => 'admins.index',
             ],
             [
@@ -43,7 +43,7 @@ class AdminMenusTableSeeder extends Seeder
                 'order' => 4,
                 'title' => '角色',
                 'icon' => 'nav-icon fas fa-user',
-                'uri' => 'manage/roles',
+                'uri' => 'roles',
                 'permission' => 'roles.index',
             ],
             [
@@ -51,7 +51,7 @@ class AdminMenusTableSeeder extends Seeder
                 'order' => 5,
                 'title' => '权限',
                 'icon' => 'nav-icon fas fa-ban',
-                'uri' => 'manage/permissions',
+                'uri' => 'permissions',
                 'permission' => 'permissions.index',
             ],
             [
@@ -59,7 +59,7 @@ class AdminMenusTableSeeder extends Seeder
                 'order' => 6,
                 'title' => '菜单',
                 'icon' => 'nav-icon fas fa-bars',
-                'uri' => 'manage/menu',
+                'uri' => 'menu',
                 'permission' => 'menus.index',
             ],
             [
@@ -67,7 +67,7 @@ class AdminMenusTableSeeder extends Seeder
                 'order' => 7,
                 'title' => '操作日志',
                 'icon' => 'nav-icon fas fa-history',
-                'uri' => 'manage/logs',
+                'uri' => 'logs',
                 'permission' => 'logs.index',
             ],
         ]);
