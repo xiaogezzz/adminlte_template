@@ -48,4 +48,22 @@ class AdminsController extends Controller
         $roles = Role::all();
         return view('admin.admin.edit', compact('admin', 'roles'))->render();
     }
+
+    public function update(Admin $admin, AdminRequest $request)
+    {
+        $admin->fill($request->all());
+        if ($request->has('password')) {
+            $admin->password = \Hash::make($request->input('password'));
+        }
+        try {
+            \DB::beginTransaction();
+            $admin->save();
+            $admin->syncRoles($request->input('roles'));
+            \DB::commit();
+        } catch (\Exception $e) {
+            \DB::rollBack();
+            return self::error('操作失败');
+        }
+        return self::redirect(route('admins.index'));
+    }
 }

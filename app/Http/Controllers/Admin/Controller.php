@@ -31,17 +31,29 @@ class Controller extends BaseController
     }
 
     /**
+     * 重定向
+     * @param string $to
+     * @param string $msg
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public static function redirect(string $to, string $msg = '操作成功')
+    {
+        return self::ajaxReturn(true, $msg, null, null, true, $to);
+    }
+
+    /**
      * 组装ajax返回数据
      * @param $status
      * @param null $msg
      * @param null $data
      * @param null $field
      * @param bool $jump
+     * @param null $to
      * @return \Illuminate\Http\JsonResponse
      */
-    protected static function ajaxReturn($status, $msg = null, $data = null, $field = null, $jump = true)
+    protected static function ajaxReturn($status, $msg = null, $data = null, $field = null, $jump = true, $to = null)
     {
-        $data = ['code' => -1, 'status' => $status, 'msg' => $msg, 'data' => $data, 'field' => $field, 'jump' => $jump];
+        $data = ['code' => -1, 'status' => $status, 'msg' => $msg, 'data' => $data, 'field' => $field, 'jump' => $jump, 'to' => $to];
         $status and $data['code'] = 0;
         return response()->json($data);
     }

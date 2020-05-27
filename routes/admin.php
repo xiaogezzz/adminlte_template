@@ -21,7 +21,7 @@ Route::namespace('Admin')->middleware(['auth', 'check.permission'])->group( func
         Route::get('/', 'AdminsController@index')->name('admins.index');
         Route::post('/', 'AdminsController@store')->name('admins.store');
         Route::get('/{admin}/edit', 'AdminsController@edit')->name('admins.edit');
-        Route::post('/update', 'AdminsController@update')->name('admins.update');
+        Route::put('/{admin}/update', 'AdminsController@update')->name('admins.update');
         Route::get('/{admin}/destroy', 'AdminsController@destroy')->name('admins.destroy');
     });
 

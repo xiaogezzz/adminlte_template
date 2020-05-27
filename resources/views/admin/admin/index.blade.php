@@ -156,6 +156,5 @@
         $('.select2').select2()
 
         ajaxSubmitData('create');
-        ajaxSubmitData('edit');
     </script>
 @stop

@@ -17,7 +17,7 @@ class AdminRequest extends FormRequest
                 $rules['password'] = 'required|min:6';
                 break;
             case 'PUT':
-                $rules['name'] = 'required|alpha_dash';
+                $rules['name'] = 'required|alpha_dash|unique:admins,name,' . $this->route('admin')->id;
         }
 
         $rules['roles'] = 'required|array';

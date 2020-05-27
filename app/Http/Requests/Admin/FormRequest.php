@@ -24,6 +24,9 @@ class FormRequest extends BaseRequest
      */
     protected function failedValidation(Validator $validator)
     {
-        throw new HttpException(422, $validator->errors()->first());
+        if ($this->expectsJson()) {
+            throw new HttpException(422, $validator->errors()->first());
+        }
+        parent::failedValidation($validator);
     }
 }
