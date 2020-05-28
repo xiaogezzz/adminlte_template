@@ -427,5 +427,16 @@ return [
                 ],
             ],
         ],
+        [
+            'name' => 'axios',
+            'active' => true,
+            'files' => [
+                [
+                    'type' => 'js',
+                    'asset' => false,
+                    'location' => '//cdn.jsdelivr.net/npm/axios/dist/axios.min.js',
+                ],
+            ],
+        ],
     ],
 ];

@@ -1,3 +1,59 @@
+window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+
+$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});
+
+$(function () {
+    // 删除按钮
+    $('[data-href].delete').on('click', function () {
+        Swal.fire({
+            title: '确定删除吗?',
+            text: "删除后将无法恢复!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#DC3545',
+            // cancelButtonColor: '#007BFF',
+            confirmButtonText: '确定删除',
+            cancelButtonText: '取消',
+            showLoaderOnConfirm: true,
+            preConfirm: action => {
+                return axios({
+                    method: 'DELETE',
+                    url: $(this).attr('data-href'),
+                })
+                    .then(response => {
+                        if (response.data.code !== 0) {
+                            console.log(response.data)
+                            throw new Error(response.data.msg)
+                        }
+                        return response.data
+                    })
+                    .catch(error => {
+                        console.log(error)
+                        Swal.fire(
+                            '错误!',
+                            `${error}`,
+                            'error'
+                        )
+                    })
+            },
+            allowOutsideClick: () => !Swal.isLoading()
+        }).then(result => {
+            if (result.value) {
+                Swal.fire(
+                    '已删除!',
+                    '数据删除成功.',
+                    'success'
+                )
+                    .then(setTimeout(() => window.location.reload(), 1000))
+            }
+        })
+    })
+});
+
 function ajaxSubmitData(formId) {
     var options = {
         // post-submit callback
@@ -11,12 +67,11 @@ function ajaxSubmitData(formId) {
                     title: res.msg
                 });
                 if (res.to) {
-                    window.location.href = res.to;
+                    setTimeout(() => window.location.href = res.to, 1000);
+                    return;
                 }
                 if (res.jump) {
-                    setTimeout(() => {
-                        window.location.reload();
-                    }, 1000);
+                    setTimeout(() => window.location.reload(), 1000);
                 }
             } else {
                 Toast.fire({

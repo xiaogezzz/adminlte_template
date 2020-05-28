@@ -66,4 +66,18 @@ class AdminsController extends Controller
         }
         return self::redirect(route('admins.index'));
     }
+
+    public function destroy(Admin $admin)
+    {
+        try {
+            \DB::beginTransaction();
+            $admin->syncRoles([]);
+            $admin->delete();
+            \DB::commit();
+        } catch (\Exception $e) {
+            \DB::rollBack();
+            return self::error('操作失败');
+        }
+        return self::success();
+    }
 }

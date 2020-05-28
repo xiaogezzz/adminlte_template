@@ -22,7 +22,7 @@ Route::namespace('Admin')->middleware(['auth', 'check.permission'])->group( func
         Route::post('/', 'AdminsController@store')->name('admins.store');
         Route::get('/{admin}/edit', 'AdminsController@edit')->name('admins.edit');
         Route::put('/{admin}/update', 'AdminsController@update')->name('admins.update');
-        Route::get('/{admin}/destroy', 'AdminsController@destroy')->name('admins.destroy');
+        Route::delete('/{admin}', 'AdminsController@destroy')->name('admins.destroy');
     });
 
     Route::group(['prefix' => 'roles'], function () {
