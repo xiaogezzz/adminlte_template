@@ -32,10 +32,10 @@ $(function () {
                         return response.data
                     })
                     .catch(error => {
-                        console.log(error)
+                        console.log(error.response.data)
                         Swal.fire(
                             '错误!',
-                            `${error}`,
+                            error.response.data.message,
                             'error'
                         )
                     })

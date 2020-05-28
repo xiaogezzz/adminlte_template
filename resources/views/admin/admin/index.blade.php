@@ -59,10 +59,12 @@
                                         <a href="{{ route('admins.edit', $item->id) }}"
                                            class="btn btn-outline-info btn-xs edit"><i class="fas fa-edit"></i> 编辑</a>
                                         @role('Super Admin')
+                                        @if($item->id != auth('admin')->user()->id)
                                             <a href="javascript:void(0);"
                                                data-href="{{ route('admins.destroy', $item->id) }}"
                                                class="btn btn-outline-danger btn-xs delete"><i class="fas fa-trash"></i>
                                                 删除</a>
+                                        @endif
                                         @endrole
                                     </td>
                                 </tr>

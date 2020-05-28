@@ -69,15 +69,10 @@ class AdminsController extends Controller
 
     public function destroy(Admin $admin)
     {
-        try {
-            \DB::beginTransaction();
+        \DB::transaction(function () use ($admin) {
             $admin->syncRoles([]);
             $admin->delete();
-            \DB::commit();
-        } catch (\Exception $e) {
-            \DB::rollBack();
-            return self::error('操作失败');
-        }
+        });
         return self::success();
     }
 }
