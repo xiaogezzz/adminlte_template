@@ -23,7 +23,7 @@
                     @method('PUT')
                     @csrf
                     <div class="card-body">
-                        <div class="col-md-6 offset-3">
+                        <div class="col-md-6 offset-md-3 col-sm-8 offset-sm-2">
                             <div class="form-group">
                                 <label for="name">用户名</label>
                                 <div class="input-group">

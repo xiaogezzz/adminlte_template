@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\Admin\AdminRequest;
 use App\Models\Admin;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 
@@ -12,23 +13,21 @@ class AdminsController extends Controller
     public function index(Request $request)
     {
         $roles = Role::all();
-        $params = [
-            '_t' => $request->input('_t', 'name'),
-            '_kw' => $request->input('_kw', ''),
-        ];
+        $keywords = $request->input('search', '');
         $list = Admin::query()
-            ->when($params['_kw'], function ($query) use ($params) {
-                return $query->where($params['_t'], 'like', '%' . $params['_kw'] . '%');
+            ->when($keywords, function (Builder $query) use ($keywords) {
+                return $query->where('name', 'like', '%' . $keywords . '%')
+                    ->orWhere('nickname', 'like', '%' . $keywords . '%');
             })
             ->latest()
             ->orderBy('id', 'desc')
             ->paginate(10);
-        return view('admin.admin.index', compact('list', 'params', 'roles'));
+        return view('admin.admin.index', compact('list', 'keywords', 'roles'));
     }
 
     public function store(AdminRequest $request)
     {
-        $admin  = new Admin($request->except('password'));
+        $admin = new Admin($request->except('password'));
         $admin->password = \Hash::make($request->input('password'));
         try {
             \DB::beginTransaction();
