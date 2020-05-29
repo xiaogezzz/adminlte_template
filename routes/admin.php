@@ -26,19 +26,19 @@ Route::namespace('Admin')->middleware(['auth', 'check.permission'])->group( func
     });
 
     Route::group(['prefix' => 'roles'], function () {
-        Route::get('/', 'AdminsController@index')->name('roles.index');
-        Route::post('/', 'AdminsController@store')->name('roles.store');
-        Route::get('/{admin}/edit', 'AdminsController@edit')->name('roles.edit');
-        Route::post('/update', 'AdminsController@update')->name('roles.update');
-        Route::get('/{admin}/destroy', 'AdminsController@destroy')->name('roles.destroy');
+        Route::get('/', 'RolesController@index')->name('roles.index');
+        Route::post('/', 'RolesController@store')->name('roles.store');
+        Route::get('/{role}/edit', 'RolesController@edit')->name('roles.edit');
+        Route::put('/{role}/update', 'RolesController@update')->name('roles.update');
+        Route::delete('/{role}/destroy', 'RolesController@destroy')->name('roles.destroy');
     });
 
     Route::group(['prefix' => 'permissions'], function () {
-        Route::get('/', 'AdminsController@index')->name('permissions.index');
-        Route::post('/', 'AdminsController@store')->name('permissions.store');
-        Route::get('/{admin}/edit', 'AdminsController@edit')->name('permissions.edit');
-        Route::post('/update', 'AdminsController@update')->name('permissions.update');
-        Route::get('/{admin}/destroy', 'AdminsController@destroy')->name('permissions.destroy');
+        Route::get('/', 'PermissionsController@index')->name('permissions.index');
+        Route::post('/', 'PermissionsController@store')->name('permissions.store');
+        Route::get('/{permission}/edit', 'PermissionsController@edit')->name('permissions.edit');
+        Route::put('/{permission}/update', 'PermissionsController@update')->name('permissions.update');
+        Route::delete('/{permission}/destroy', 'PermissionsController@destroy')->name('permissions.destroy');
     });
 
     Route::group(['prefix' => 'menus'], function () {

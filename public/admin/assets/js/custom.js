@@ -97,7 +97,7 @@ function ajaxSubmitData(formId) {
 
 const Toast = Swal.mixin({
     toast: true,
-    position: 'top',
+    // position: 'top',
     showConfirmButton: false,
     timer: 3000
 });
