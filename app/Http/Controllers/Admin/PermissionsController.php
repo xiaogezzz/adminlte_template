@@ -43,4 +43,12 @@ class PermissionsController extends Controller
         }
         return self::error();
     }
+
+    public function destroy(Permission $permission)
+    {
+        if ($permission->delete())
+            return self::success();
+
+        return self::error();
+    }
 }
