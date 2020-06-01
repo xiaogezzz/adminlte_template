@@ -1,7 +1,7 @@
 @extends('adminlte::page')
 
 @section('content_header')
-    <h1>编辑角色</h1>
+    <h1>编辑权限</h1>
 @stop
 
 @section('content')
@@ -10,14 +10,14 @@
             <div class="card card-outline card-primary">
                 <div class="card-header">
                     <h3 class="card-title">
-                        <a href="{{ route('roles.index') }}" type="button" class="btn btn-block btn-primary btn-sm"><i
+                        <a href="{{ route('permissions.index') }}" type="button" class="btn btn-block btn-primary btn-sm"><i
                                 class="fas fa-chevron-left"></i> 返回
                         </a>
                     </h3>
                 </div>
                 <!-- /.card-header -->
                 <form role="form" data-parsley-validate="true" name="edit-role"
-                      action="{{ route('roles.update', $role->id) }}" method="post" id="edit">
+                      action="{{ route('permissions.update', $permission->id) }}" method="post" id="edit">
                     @method('PUT')
                     @csrf
                     <div class="card-body">
@@ -28,7 +28,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="fas fa-pencil-alt"></i></span>
                                     </div>
-                                    <input type="text" id="name" name="name" value="{{ $role->name }}"
+                                    <input type="text" id="name" name="name" value="{{ $permission->name }}"
                                            class="form-control" placeholder="请填写标识" required>
                                 </div>
                             </div>
@@ -39,7 +39,7 @@
                                         <span class="input-group-text"><i class="fas fa-pencil-alt"></i></span>
                                     </div>
                                     <input type="text" class="form-control" id="display_name" name="display_name"
-                                           placeholder="请填写昵称" value="{{ $role->display_name }}">
+                                           placeholder="请填写昵称" value="{{ $permission->display_name }}">
 
                                 </div>
                             </div>
@@ -50,18 +50,8 @@
                                         <span class="input-group-text"><i class="fas fa-pencil-alt"></i></span>
                                     </div>
                                     <textarea name="description" id="description" cols="2"
-                                              class="form-control">{{ $role->description }}</textarea>
+                                              class="form-control">{{ $permission->description }}</textarea>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="permissions[]">权限</label>
-                                <select class="duallistbox form-control" id="permissions[]" name="permissions[]"
-                                        multiple="multiple">
-                                    @foreach($permissions as $permission)
-                                        <option @if($role->hasPermissionTo($permission->name))
-                                                selected @endif>{{ $permission->name }}</option>
-                                    @endforeach
-                                </select>
                             </div>
 
                         </div>
@@ -79,15 +69,8 @@
     </div>
 @stop
 
-@section('plugins.Bootstrap Duallistbox', true)
-
 @section('js')
     <script>
         ajaxSubmitData('edit');
-
-        //Bootstrap Duallistbox
-        $('.duallistbox').bootstrapDualListbox({
-            filterPlaceHolder: '筛选'
-        })
     </script>
 @stop

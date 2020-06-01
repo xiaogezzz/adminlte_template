@@ -14,7 +14,7 @@ class PermissionRequest extends FormRequest
         $id = $this->route('permission') ? $this->route('permission')->id : '';
 
         return [
-            'name' => 'required|alpha_dash|unique:admin_roles,name,' . $id,
+            'name' => 'required|unique:admin_roles,name,' . $id,
             'display_name' => 'required|unique:admin_roles,display_name,' . $id,
         ];
     }
