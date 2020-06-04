@@ -42,11 +42,11 @@ Route::namespace('Admin')->middleware(['auth', 'check.permission'])->group( func
     });
 
     Route::group(['prefix' => 'menus'], function () {
-        Route::get('/', 'AdminsController@index')->name('menus.index');
-        Route::post('/', 'AdminsController@store')->name('menus.store');
-        Route::get('/{admin}/edit', 'AdminsController@edit')->name('menus.edit');
-        Route::post('/update', 'AdminsController@update')->name('menus.update');
-        Route::get('/{admin}/destroy', 'AdminsController@destroy')->name('menus.destroy');
+        Route::get('/', 'MenusController@index')->name('menus.index');
+        Route::post('/', 'MenusController@store')->name('menus.store');
+        Route::get('/{menu}/edit', 'MenusController@edit')->name('menus.edit');
+        Route::put('/{menu}', 'MenusController@update')->name('menus.update');
+        Route::delete('/{menu}', 'MenusController@destroy')->name('menus.destroy');
     });
 
     Route::group(['prefix' => 'logs'], function () {

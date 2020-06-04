@@ -353,7 +353,7 @@ return [
                 [
                     'type' => 'js',
                     'asset' => true,
-                    'location' => 'vendor/select2/js/select2.min.js',
+                    'location' => 'vendor/select2/js/select2.full.js',
                 ],
                 [
                     'type' => 'css',

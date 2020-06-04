@@ -7,11 +7,11 @@
 @section('content')
     <div class="row">
         <div class="col-md-12">
-            <div class="card card-outline card-primary">
+            <div class="card card-dark">
                 <div class="card-header">
                     <h3 class="card-title">
-                        <a href="{{ route('permissions.index') }}" type="button" class="btn btn-block btn-primary btn-sm"><i
-                                class="fas fa-chevron-left"></i> 返回
+                        <a href="{{ route('permissions.index') }}" type="button"
+                           class="btn btn-block btn-light btn-sm text-dark"><i class="fas fa-chevron-left"></i> 返回
                         </a>
                     </h3>
                 </div>

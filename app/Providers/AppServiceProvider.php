@@ -45,7 +45,7 @@ class AppServiceProvider extends ServiceProvider
                     $event->menu->addin($menu->parent_id, [
                         'text' => $menu->title,
                         'url' => $menu->permission ? route($menu->permission) : '',
-                        'icon' => $menu->icon,
+                        'icon' => 'nav-icon fas ' . $menu->icon,
                         'active' => $active($menu->permission),
                     ]);
 

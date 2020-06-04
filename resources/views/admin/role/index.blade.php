@@ -7,10 +7,10 @@
 @section('content')
     <div class="row">
         <div class="col-12">
-            <div class="card card-outline card-gray">
+            <div class="card card-dark">
                 <div class="card-header">
                     <h3 class="card-title">
-                        <button type="button" class="btn btn-block btn-primary btn-sm" data-toggle="modal"
+                        <button type="button" class="btn btn-block btn-light btn-sm" data-toggle="modal"
                                 data-target="#modal-default"><i class="fa fa-plus"></i> 新增
                         </button>
                     </h3>
@@ -31,7 +31,7 @@
                 <!-- /.card-header -->
                 <div class="card-body table-responsive p-0">
                     <table class="table table-valign-middle table-hover text-nowrap">
-                        <thead>
+                        <thead class="bg-gray">
                         <tr>
                             <th></th>
                             <th>标识</th>
@@ -53,11 +53,11 @@
                                     <td>
                                         @if($item->name != 'Super Admin')
                                             <a href="{{ route('roles.edit', $item->id) }}"
-                                               class="btn btn-outline-info btn-xs edit"><i class="fas fa-edit"></i>
+                                               class="btn btn-outline-dark btn-xs edit"><i class="fas fa-edit"></i>
                                                 编辑</a>
                                             <a href="javascript:void(0);"
                                                data-href="{{ route('roles.destroy', $item->id) }}"
-                                               class="btn btn-outline-danger btn-xs delete"><i class="fas fa-trash"></i>
+                                               class="btn btn-warning btn-xs delete"><i class="fas fa-trash"></i>
                                                 删除</a>
                                         @endif
                                     </td>
@@ -92,9 +92,9 @@
                   action="{{ route('roles.store') }}" method="post" id="create">
                 @csrf
                 <div class="modal-content">
-                    <div class="modal-header">
+                    <div class="modal-header bg-dark">
                         <h4 class="modal-title">新增角色</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <button type="button" class="close text-light" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
