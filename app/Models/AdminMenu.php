@@ -94,4 +94,24 @@ class AdminMenu extends Model
 
         return $options;
     }
+
+    /**
+     * Get admin url.
+     *
+     * @param string $path
+     * @param mixed  $parameters
+     * @param bool   $secure
+     *
+     * @return string
+     */
+    function adminUrl($path = '', $parameters = [], $secure = null)
+    {
+        if (\URL::isValidUrl($path)) {
+            return $path;
+        }
+
+        $secure = $secure ?: (config('admin.https') || config('admin.secure'));
+
+        return url(admin_base_path($path), $parameters, $secure);
+    }
 }
