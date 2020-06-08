@@ -50,11 +50,9 @@ Route::namespace('Admin')->middleware(['auth', 'check.permission'])->group( func
     });
 
     Route::group(['prefix' => 'logs'], function () {
-        Route::get('/', 'AdminsController@index')->name('logs.index');
-        Route::post('/', 'AdminsController@store')->name('logs.store');
-        Route::get('/{admin}/edit', 'AdminsController@edit')->name('logs.edit');
-        Route::post('/update', 'AdminsController@update')->name('logs.update');
-        Route::get('/{admin}/destroy', 'AdminsController@destroy')->name('logs.destroy');
+        Route::get('/', 'LogsController@index')->name('logs.index');
+        Route::post('/', 'LogsController@store')->name('logs.store');
+        Route::delete('/{log}', 'LogsController@destroy')->name('logs.destroy');
     });
 
 });
