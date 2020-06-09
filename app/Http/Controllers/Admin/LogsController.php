@@ -14,7 +14,7 @@ class LogsController extends Controller
         $list = $log::query()
             ->latest()
             ->orderBy('id', 'desc')
-            ->paginate();
+            ->paginate(20);
 
         return view('admin.log.index', compact('list', 'keywords'));
     }

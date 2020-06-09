@@ -9,24 +9,24 @@
         <div class="col-12">
             <div class="card card-dark">
                 <div class="card-header">
-                    <h3 class="card-title"></h3>
+                    <h3 class="card-title">&nbsp;</h3>
 
-                    <div class="float-right">
-                        <form action="{{ route('logs.index') }}" method="GET">
-                            <div class="input-group input-group-sm" style="width: 150px;">
-                                <input type="text" name="search" class="form-control float-right"
-                                       placeholder="搜索" value="{{ $keywords }}">
+{{--                    <div class="float-right">--}}
+{{--                        <form action="{{ route('logs.index') }}" method="GET">--}}
+{{--                            <div class="input-group input-group-sm" style="width: 150px;">--}}
+{{--                                <input type="text" name="search" class="form-control float-right"--}}
+{{--                                       placeholder="搜索" value="{{ $keywords }}">--}}
 
-                                <div class="input-group-append">
-                                    <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
+{{--                                <div class="input-group-append">--}}
+{{--                                    <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </form>--}}
+{{--                    </div>--}}
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body table-responsive p-0">
-                    <table class="table table-valign-middle table-hover text-nowrap">
+                    <table class="table table-valign-middle table-hover text-nowrap table-sm">
                         <thead class="bg-gray">
                         <tr>
                             <th>ID</th>
