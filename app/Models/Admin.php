@@ -35,4 +35,10 @@ class Admin extends Authenticatable
     {
         return asset('admin/assets/img/avatar.png');
     }
+
+    // 管理员用户信息页面
+    public function adminlte_profile_url()
+    {
+        return 'profile/username';
+    }
 }

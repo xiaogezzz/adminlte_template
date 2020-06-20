@@ -49,7 +49,7 @@
                                     <td><span class="badge bg-gray">{{ $item->path }}</span></td>
                                     <td><span class="badge bg-dark">{{ $item->ip }}</span></td>
                                     <td>@if(empty($item->input)) - @else
-                                            <pre class="bg-gray">{{ $item->input }}</pre> @endif
+                                            <pre class="bg-gray m-auto rounded-sm">{{ $item->input }}</pre> @endif
                                     </td>
                                     <td>{{ $item->created_at }}</td>
                                     <td>
