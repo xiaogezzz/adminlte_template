@@ -31,7 +31,7 @@ class BuildingUserMenus
         $active = function ($uri) {
             if ($uri) {
                 $uri = url()->route($uri, [], false);
-                return  ['regex:@^' . substr($uri, 1) . '/[0-9]+/.*$@'];
+                return  ['regex:@^' . trim($uri, '/') . '/[0-9]+/.*$@'];
             }
             return '';
         };
@@ -41,7 +41,7 @@ class BuildingUserMenus
                 $menu_info = [
                     'key' => $menu->id,
                     'text' => $menu->title,
-                    'url' => $menu->permission ? route($menu->permission) : $menu->uri,
+                    'url' => $menu->uri ? (url()->isValidUrl($menu->uri) ? $menu->uri : route($menu->permission)) : '',
                     'icon' => 'nav-icon fas ' . $menu->icon,
                     'active' => $active($menu->permission),
                 ];
