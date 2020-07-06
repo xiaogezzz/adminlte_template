@@ -33,7 +33,7 @@ class BuildingUserMenus
                 $uri = url()->route($uri, [], false);
                 return  ['regex:@^' . trim($uri, '/') . '/[0-9]+/.*$@'];
             }
-            return '';
+            return [];
         };
 
         $func = function ($menus) use (&$func, $event, $active) {
