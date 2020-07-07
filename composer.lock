@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bd536a4e6b635cd645154718ae4b6771",
+    "content-hash": "dc727608ba16610e1b0e302d37bae175",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -630,16 +630,16 @@
         },
         {
             "name": "jeroennoten/laravel-adminlte",
-            "version": "v3.3.1",
+            "version": "v3.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jeroennoten/Laravel-AdminLTE.git",
-                "reference": "82e7a3f14a7de6e0a7bb33a1e659f87f024261a5"
+                "reference": "324698d4be687672b9ec3e78bf52f0362066d5cc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jeroennoten/Laravel-AdminLTE/zipball/82e7a3f14a7de6e0a7bb33a1e659f87f024261a5",
-                "reference": "82e7a3f14a7de6e0a7bb33a1e659f87f024261a5",
+                "url": "https://api.github.com/repos/jeroennoten/Laravel-AdminLTE/zipball/324698d4be687672b9ec3e78bf52f0362066d5cc",
+                "reference": "324698d4be687672b9ec3e78bf52f0362066d5cc",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -687,7 +687,7 @@
                 "administrator",
                 "laravel"
             ],
-            "time": "2020-06-09T05:51:41+00:00"
+            "time": "2020-07-06T17:34:34+00:00"
         },
         {
             "name": "laravel/framework",
