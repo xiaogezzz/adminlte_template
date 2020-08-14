@@ -23,7 +23,7 @@ class AdminMenu extends Model
 
     public function subMenus()
     {
-        return $this->hasMany(self::class, 'parent_id');
+        return $this->hasMany(self::class, 'parent_id')->orderBy('order');
     }
 
     public function parent()

@@ -72,6 +72,16 @@
                                            placeholder="请填写 icon" value="{{ $menu->uri }}">
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <label for="order">排序</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-sort-amount-up-alt"></i></span>
+                                    </div>
+                                    <input type="text" class="form-control" id="order" name="order"
+                                           placeholder="0" value="{{ $menu->order }}">
+                                </div>
+                            </div>
 
                         </div>
                     </div>

@@ -119,6 +119,10 @@
                             <input type="text" class="form-control" id="uri" name="uri" placeholder="请填写 uri">
                         </div>
 
+                        <div class="form-group">
+                            <label for="order">排序</label>
+                            <input type="text" class="form-control" id="order" name="order" placeholder="0">
+                        </div>
 
                     </div>
                     <div class="modal-footer justify-content-between">
