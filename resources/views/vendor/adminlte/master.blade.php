@@ -84,6 +84,7 @@
     @endif
 
     {{-- Custom Scripts --}}
+    <script src="{{ asset('admin/assets/js/custom.js') }}"></script>
     @yield('adminlte_js')
 
 </body>
