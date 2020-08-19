@@ -4,19 +4,10 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Tymon\JWTAuth\JWTAuth;
 
 class AuthController extends Controller
 {
-    /**
-     * Create a new AuthController instance.
-     *
-     * @return void
-     */
-    public function __construct(Request $request)
-    {
-        $this->middleware('auth:api', ['except' => ['login']]);
-    }
-
     /**
      * Get a JWT via given credentials.
      *
@@ -52,7 +43,7 @@ class AuthController extends Controller
      */
     public function update()
     {
-        return $this->respondWithToken(auth('api')->refresh());
+        return $this->respondWithToken(\JWTAuth::refresh());
     }
 
     /**

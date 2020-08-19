@@ -15,11 +15,11 @@ class AdminMenu extends Model
         'permission',
     ];
 
-    protected string $parentColumn = 'parent_id';
+    protected $parentColumn = 'parent_id';
 
-    protected string $titleColumn = 'title';
+    protected $titleColumn = 'title';
 
-    protected string $orderColumn = 'order';
+    protected $orderColumn = 'order';
 
     public function subMenus()
     {
