@@ -32,7 +32,7 @@ class AdminMenusTableSeeder extends Seeder
             ],
             [
                 'parent_id' => 2,
-                'order' => 3,
+                'order' => 1,
                 'title' => '管理员',
                 'icon' => 'nav-icon fas fa-users',
                 'uri' => 'admins',
@@ -40,7 +40,7 @@ class AdminMenusTableSeeder extends Seeder
             ],
             [
                 'parent_id' => 2,
-                'order' => 4,
+                'order' => 2,
                 'title' => '角色',
                 'icon' => 'nav-icon fas fa-user',
                 'uri' => 'roles',
@@ -48,7 +48,7 @@ class AdminMenusTableSeeder extends Seeder
             ],
             [
                 'parent_id' => 2,
-                'order' => 5,
+                'order' => 3,
                 'title' => '权限',
                 'icon' => 'nav-icon fas fa-ban',
                 'uri' => 'permissions',
@@ -56,7 +56,7 @@ class AdminMenusTableSeeder extends Seeder
             ],
             [
                 'parent_id' => 2,
-                'order' => 6,
+                'order' => 4,
                 'title' => '菜单',
                 'icon' => 'nav-icon fas fa-bars',
                 'uri' => 'menu',
@@ -64,7 +64,7 @@ class AdminMenusTableSeeder extends Seeder
             ],
             [
                 'parent_id' => 2,
-                'order' => 7,
+                'order' => 5,
                 'title' => '操作日志',
                 'icon' => 'nav-icon fas fa-history',
                 'uri' => 'logs',
