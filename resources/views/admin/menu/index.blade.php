@@ -37,7 +37,7 @@
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $item->title }}</td>
-                                    <td>@if(0 == $item->parent_id) <i class="fa {{ $item->icon }}"></i> @else - @endif
+                                    <td><i class="{{ $item->icon }}"></i>
                                     </td>
                                     <td>{{ $item->uri }}</td>
                                     <td>{{ $item->permission }}</td>

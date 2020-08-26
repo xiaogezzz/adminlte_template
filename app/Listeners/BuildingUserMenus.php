@@ -42,7 +42,7 @@ class BuildingUserMenus
                     'key' => $menu->id,
                     'text' => $menu->title,
                     'url' => $menu->uri ? (url()->isValidUrl($menu->uri) ? $menu->uri : route($menu->permission)) : '',
-                    'icon' => 'nav-icon fas ' . $menu->icon,
+                    'icon' => 'nav-icon ' . $menu->icon,
                     'active' => $active($menu->permission),
                 ];
 
