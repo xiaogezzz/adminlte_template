@@ -105,7 +105,7 @@
 
                         <div class="form-group">
                             <label for="icon">图标</label>
-                            <input type="text" class="form-control" id="icon" name="icon" value="fa-bars"
+                            <input type="text" class="form-control" id="icon" name="icon" value="far fa-circle"
                                    required>
                         </div>
 
