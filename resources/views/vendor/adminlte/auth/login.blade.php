@@ -24,7 +24,7 @@
     <form action="{{ $login_url }}" method="post">
         {{ csrf_field() }}
 
-        {{-- name field --}}
+        {{-- Name field --}}
         <div class="input-group mb-3">
             <input type="name" name="name" class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}"
                    value="{{ old('name') }}" placeholder="{{ __('adminlte::adminlte.name') }}" autofocus>

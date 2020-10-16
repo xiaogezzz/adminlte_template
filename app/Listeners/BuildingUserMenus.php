@@ -27,6 +27,7 @@ class BuildingUserMenus
             ->where('parent_id', 0)
             ->orderBy('order')
             ->get();
+        // dd($menus->toArray());
 
         $active = function ($uri) {
             if ($uri) {
