@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7bf4e49dcbf3b574aeb04422f523d418",
+    "content-hash": "57ca8304a776cfcd99cdced1cc169068",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -648,16 +648,16 @@
         },
         {
             "name": "jeroennoten/laravel-adminlte",
-            "version": "v3.5.0",
+            "version": "v3.5.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jeroennoten/Laravel-AdminLTE.git",
-                "reference": "baa10b8b0c3bd085a7e6cd5a62d5b5aa25d3ccfb"
+                "reference": "4c155cf3b90b5679bc2edfbe873b2be5fa0f9815"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jeroennoten/Laravel-AdminLTE/zipball/baa10b8b0c3bd085a7e6cd5a62d5b5aa25d3ccfb",
-                "reference": "baa10b8b0c3bd085a7e6cd5a62d5b5aa25d3ccfb",
+                "url": "https://api.github.com/repos/jeroennoten/Laravel-AdminLTE/zipball/4c155cf3b90b5679bc2edfbe873b2be5fa0f9815",
+                "reference": "4c155cf3b90b5679bc2edfbe873b2be5fa0f9815",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -667,7 +667,7 @@
                 ]
             },
             "require": {
-                "almasaeed2010/adminlte": "^3.0",
+                "almasaeed2010/adminlte": "3.0.*",
                 "laravel/framework": ">=6.0",
                 "php": ">=7.2.0"
             },
@@ -705,7 +705,11 @@
                 "administrator",
                 "laravel"
             ],
-            "time": "2020-09-26T21:28:24+00:00"
+            "support": {
+                "issues": "https://github.com/jeroennoten/Laravel-AdminLTE/issues",
+                "source": "https://github.com/jeroennoten/Laravel-AdminLTE/tree/v3.5.4"
+            },
+            "time": "2021-03-22T16:23:11+00:00"
         },
         {
             "name": "laravel/framework",
@@ -8503,5 +8507,5 @@
         "php": "^7.2"
     },
     "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "plugin-api-version": "2.0.0"
 }

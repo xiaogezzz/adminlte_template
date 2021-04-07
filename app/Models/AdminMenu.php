@@ -31,7 +31,6 @@ class AdminMenu extends Model
         return $this->belongsTo(self::class, 'parent_id');
     }
 
-
     public function allNodes()
     {
         $orderColumn = \DB::getQueryGrammar()->wrap($this->orderColumn);
@@ -59,8 +58,8 @@ class AdminMenu extends Model
     /**
      * Build options of select field in form.
      *
-     * @param array  $nodes
-     * @param int    $parentId
+     * @param array $nodes
+     * @param int $parentId
      * @param string $prefix
      * @param string $space
      *
@@ -99,8 +98,8 @@ class AdminMenu extends Model
      * Get admin url.
      *
      * @param string $path
-     * @param mixed  $parameters
-     * @param bool   $secure
+     * @param mixed $parameters
+     * @param bool $secure
      *
      * @return string
      */
